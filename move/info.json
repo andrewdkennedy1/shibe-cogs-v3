@@ -1,0 +1,10 @@
+{
+    "author" : ["Shibe"],
+    "install_msg" : "I like to move it move it.",
+    "name" : "Move",
+    "short" : "Moves a message",
+    "requirements" : [],
+    "description" : "Moves a messageID to #channel and notify the user where their message was moved too",
+    "permissions" : ["Delete"],
+    "tags" : ["ADMIN"]
+}
