@@ -11,7 +11,7 @@ class move(commands.Cog):
     """Take your message here and move it over there"""
 
     @commands.command(pass_context=True)
-    async def move(self, ctx, message_id: int,message_channel: discord.TextChannel.str):
+    async def move(self, ctx, message_id: int,message_channel: str):
         """[p]move [messageID] [channelID]"""
         target_channel = ctx.bot.get_channel(message_channel)
         target_message = await ctx.fetch_message(message_id)
