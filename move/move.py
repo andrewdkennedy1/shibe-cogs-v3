@@ -11,7 +11,7 @@ class move(commands.Cog):
     """Take your message here and move it over there"""
 
     @commands.command(pass_context=True)
-    async def move(ctx):
+    async def move(self,ctx):
         """[p]move [messageID] [channelID]"""
 
         content = ctx.message.content
