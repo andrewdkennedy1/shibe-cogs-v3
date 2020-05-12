@@ -14,10 +14,10 @@ class move(commands.Cog):
     async def move(self, ctx):
         """[p]move [messageID] [channelID]"""
 
-        content = re.search('*', ctx.message.content)
+        content = ctx.message.content
 
         if content == None:
-            await ctx.send(f'{ctx.message.author.mention}: The command specified is incorrectly formatted - (.move <message id> <channel>)', delete_after=5)
+            await ctx.send(f'{ctx.message.author.mention}: The command specified is incorrectly formatted - (bp!move <message id> <channel>)', delete_after=5)
             return
 
         message_id = int(content.group(1))
