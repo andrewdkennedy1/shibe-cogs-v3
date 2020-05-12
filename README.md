@@ -1,5 +1,5 @@
 # Shibe's Cogs
-Description of your repository
+oh hi 
 
 # Installation
 To install the cogs, Follow the given steps:
