@@ -13,7 +13,7 @@ class move(commands.Cog):
     @commands.command(pass_context=True)
     async def move(self, ctx, message_id: int,message_channel: discord.TextChannel,):
         """[p]move [messageID] [channelID]"""
-        target_channel = bot.get_channel(message_channel)
+        target_channel = self.get_channel(message_channel)
         target_message = await ctx.fetch_message(message_id)
         if target_message == None:
             await ctx.send(f'{ctx.message.author.mention}: The message specified does not exist.', delete_after=5)
