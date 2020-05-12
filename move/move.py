@@ -26,10 +26,10 @@ class move(commands.Cog):
         for attachment in target_message.attachments:
             files.append(discord.File(fp=io.BytesIO(requests.get(attachment.url).ctx.message), filename=attachment.filename, spoiler=attachment.is_spoiler()))
 
-        embed = discord.Embed(title='The message was originally sent at: %s' % (target_message.created_at.strftime('%Y/%m/%d %I:%M:%S %p')), description='', color=0x00ff00)
+        embed = discord.Embed(title='Message moved from: %s' % (target_message.channel), description='', color=0x00ff00)
         embed.set_author(name=target_message.author.name, url=target_message.author.avatar_url, icon_url=target_message.author.avatar_url)
         embed.add_field(name='Message', value=target_message.content)
         await target_channel.send('', embed=embed, files=files)
         await target_message.delete()
-        await ctx.send(f'{ctx.message.author.mention}: The message was successfully pushed down into {target_channel.mention}', delete_after=5)
+        await ctx.send(f'{ctx.message.author.mention}: Your message was moved to {target_channel.mention}', delete_after=5)
         await ctx.message.delete()
