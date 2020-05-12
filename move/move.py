@@ -2,7 +2,7 @@ from redbot.core import commands
 
 
 # Classname should be CamelCase and the same spelling as the folder
-class Move(commands.Cog):
+class move(commands.Cog):
     """[p]move [messageID] [channelID]"""
 
     @commands.command()
