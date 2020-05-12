@@ -11,15 +11,8 @@ class move(commands.Cog):
     """Take your message here and move it over there"""
 
     @commands.command(pass_context=True)
-    async def move(self, ctx, messageid: int,message_channel: discord.TextChannel,):
-        """[p]move [messageID] [channelID]"""
-
-        content = ctx.message.content
-
-        if content == None:
-            await ctx.send(f'{ctx.message.author.mention}: The command specified is incorrectly formatted - (.move <message id> <channel>)', delete_after=5)
-            return
-
+    async def move(self, ctx, message_id: int,message_channel: discord.TextChannel,):
+        """[p]move [messageID] [channelID]"""=
         target_channel = bot.get_channel(message_channel)
         target_message = await ctx.fetch_message(message_id)
         if target_message == None:
@@ -31,7 +24,7 @@ class move(commands.Cog):
             return
         files = []
         for attachment in target_message.attachments:
-            files.append(discord.File(fp=io.BytesIO(requests.get(attachment.url).content), filename=attachment.filename, spoiler=attachment.is_spoiler()))
+            files.append(discord.File(fp=io.BytesIO(requests.get(attachment.url).ctx.message), filename=attachment.filename, spoiler=attachment.is_spoiler()))
 
         embed = discord.Embed(title='The message was originally sent at: %s' % (target_message.created_at.strftime('%Y/%m/%d %I:%M:%S %p')), description='', color=0x00ff00)
         embed.set_author(name=target_message.author.name, url=target_message.author.avatar_url, icon_url=target_message.author.avatar_url)
