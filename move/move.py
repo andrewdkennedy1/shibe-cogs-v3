@@ -10,8 +10,8 @@ from redbot.core import commands
 class move(commands.Cog):
     """Take your message here and move it over there"""
 
-    @commands.command()
-    async def move(self, ctx):
+    @commands.command(pass_context=True)
+    async def move(ctx):
         """[p]move [messageID] [channelID]"""
 
         content = re.search('\.move\s*(\d+)\s*to\s*<#(\d+)>\s*', ctx.message.content)
