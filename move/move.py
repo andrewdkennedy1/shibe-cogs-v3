@@ -11,7 +11,7 @@ class move(commands.Cog):
     """Take your message here and move it over there"""
 
     @commands.command(pass_context=True)
-    async def move(self,ctx, *):
+    async def move(self, ctx, messageid: int,message_channel: discord.TextChannel,):
         """[p]move [messageID] [channelID]"""
 
         content = ctx.message.content
@@ -19,9 +19,6 @@ class move(commands.Cog):
         if content == None:
             await ctx.send(f'{ctx.message.author.mention}: The command specified is incorrectly formatted - (.move <message id> <channel>)', delete_after=5)
             return
-
-        message_id = int(content.group(1))
-        message_channel = int(content.group(2))
 
         target_channel = bot.get_channel(message_channel)
         target_message = await ctx.fetch_message(message_id)
