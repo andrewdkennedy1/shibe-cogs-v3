@@ -13,7 +13,7 @@ class description(commands.Cog):
     @commands.command(pass_context=True)
     async def description(self, ctx):
         """[p]description"""
-        embed = discord.Embed(title='Message from: %s' % (bot.self.channel), description='', color=0x00ff00)
-        embed.set_author(name="ShibeBot", url=bot.self.avatar_url, icon_url=bot.self.avatar_url)
-        embed.add_field(name='Message', value=bot.self.channel.description)
+        embed = discord.Embed(title=' Description of: %s' % (self.channel), description='', color=0x00ff00)
+        embed.set_author(name="ShibeBot", url=self.avatar_url, icon_url=self.avatar_url)
+        embed.add_field(name='Description', value=self.channel.description)
         await target_channel.send('', embed=embed)
