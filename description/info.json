@@ -1,0 +1,10 @@
+{
+    "author" : ["Shibe"],
+    "install_msg" : "what this channel do?",
+    "name" : "Description",
+    "short" : "Describes a text channel",
+    "requirements" : [],
+    "description" : "Pulls the channel desciption and re-posts it in an embed",
+    "permissions" : [""],
+    "tags" : [""]
+}
