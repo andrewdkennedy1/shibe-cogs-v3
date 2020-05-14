@@ -5,7 +5,7 @@ import logging
 from redbot.core import commands
 
 class randomfact(commands.Cog):
-    """Gets a useless fact."""
+    """Gets a random fact."""
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
