@@ -10,7 +10,7 @@ class randomfact(commands.Cog):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
-        self.__url: str = "https://uselessfacts.jsph.pl/random.json"
+        self.__url: str = "https://uselessfacts.jsph.pl/random.json?language=en"
         self.__session = aiohttp.ClientSession()
 
     def cog_unload(self) -> None:
