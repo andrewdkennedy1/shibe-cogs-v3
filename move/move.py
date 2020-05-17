@@ -32,5 +32,5 @@ class move(commands.Cog):
         embed.add_field(name='Message', value=target_message.content)
         await target_channel.send('', embed=embed, files=files)
         await target_message.delete()
-        await ctx.send(f'{ctx.message.author.mention}: Your message was moved to {target_channel.mention}', delete_after=30)
+        await ctx.send(f'{ctx.target_message.author.mention}: Your message was moved to {target_channel.mention}', delete_after=30)
         await ctx.message.delete()
