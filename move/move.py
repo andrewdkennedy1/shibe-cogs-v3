@@ -2,6 +2,7 @@ import asyncio
 import re
 import io
 import discord
+import requests
 from datetime import datetime
 from redbot.core import commands
 
