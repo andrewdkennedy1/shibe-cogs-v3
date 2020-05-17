@@ -29,7 +29,7 @@ class move(commands.Cog):
             fp = io.BytesIO()
             await attachment.save(fp)
             file = discord.File(fp, filename)
-            files.append(file, filename=attachment.filename, spoiler=attachment.is_spoiler())
+            files.append(file)
 
         embed = discord.Embed(title='Message moved from: %s' % (target_message.channel), description='', color=0x00ff00)
         embed.set_author(name=target_message.author.name, url=target_message.author.avatar_url, icon_url=target_message.author.avatar_url)
