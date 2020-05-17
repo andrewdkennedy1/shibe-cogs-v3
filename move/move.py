@@ -36,7 +36,7 @@ class move(commands.Cog):
         await ctx.message.delete()
 
     @commands.command(pass_context=True)
-    async def silentmove(self, ctx, message_id: int,message_channel: str):
+    async def silentmove(self, ctx, message_id: int,message_channel: discord.Channel):
         """[p]move [messageID] [channelID]"""
         target_channel = ctx.bot.get_channel(message_channel)
         target_message = await ctx.fetch_message(message_id)
