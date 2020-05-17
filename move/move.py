@@ -16,6 +16,7 @@ class move(commands.Cog):
         """[p]move [messageID] [channelID]"""
         target_channel = ctx.bot.get_channel(message_channel)
         target_message = await ctx.fetch_message(message_id)
+
         if target_message == None:
             await ctx.send(f'{ctx.message.author.mention}: The message specified does not exist.', delete_after=5)
             return
@@ -23,11 +24,12 @@ class move(commands.Cog):
         if target_channel == None:
             await ctx.send(f'{ctx.message.author.mention}: The channel specified does not exist.', delete_after=5)
             return
+
         files = []
+
         for attachment in target_message.attachments:
             filename = attachment.filename
-            fp = io.BytesIO()
-            await attachment.save(fp)
+            fp = io.BytesIO(attachment.url.content)
             file = discord.File(fp, filename)
             files.append(file)
 
