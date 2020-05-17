@@ -2,6 +2,7 @@ import asyncio
 import re
 import io
 import discord
+import requests
 from datetime import datetime
 from redbot.core import commands
 
@@ -24,7 +25,7 @@ class move(commands.Cog):
             return
         files = []
         for attachment in target_message.attachments:
-            files.append(discord.File(fp=io.BytesIO(attachment.url), filename=attachment.filename, spoiler=attachment.is_spoiler()))
+            files.append(discord.File(fp=io.BytesIO(requests.get(attachment.url)), filename=attachment.filename, spoiler=attachment.is_spoiler()))
 
         embed = discord.Embed(title='Message moved from: %s' % (target_message.channel), description='', color=0x00ff00)
         embed.set_author(name=target_message.author.name, url=target_message.author.avatar_url, icon_url=target_message.author.avatar_url)
