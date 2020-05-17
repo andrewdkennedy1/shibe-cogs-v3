@@ -13,7 +13,7 @@ class move(commands.Cog):
 
     @commands.command(pass_context=True)
     async def move(self, ctx, message_id: int,message_channel: discord.TextChannel):
-        """[p]move [messageID] [channelID]"""
+        """Notifies the sender. `[p]move [messageID] #Channel-Name`"""
         target_channel = ctx.bot.get_channel(message_channel.id)
         target_message = await ctx.fetch_message(message_id)
         if target_message == None:
@@ -37,7 +37,7 @@ class move(commands.Cog):
 
     @commands.command(pass_context=True)
     async def silentmove(self, ctx, message_id: int,message_channel: discord.TextChannel):
-        """[p]move [messageID] [channelID]"""
+        """Moves a message without any notifications `[p]silentmove [messageID] #Channel-Name`"""
         target_channel = ctx.bot.get_channel(message_channel.id)
         target_message = await ctx.fetch_message(message_id)
         if target_message == None:
