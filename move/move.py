@@ -29,7 +29,7 @@ class move(commands.Cog):
 
         for attachment in target_message.attachments:
             filename = attachment.filename
-            fp = io.BytesIO(attachment.url.content)
+            fp = io.BytesIO()
             file = discord.File(fp, filename)
             files.append(file)
 
