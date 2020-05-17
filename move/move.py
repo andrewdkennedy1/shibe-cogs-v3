@@ -36,9 +36,9 @@ class move(commands.Cog):
         await ctx.message.delete()
 
     @commands.command(pass_context=True)
-    async def silentmove(self, ctx, message_id: int,message_channel: discord.Channel):
+    async def silentmove(self, ctx, message_id: int,message_channel: discord.TextChannel):
         """[p]move [messageID] [channelID]"""
-        target_channel = ctx.bot.get_channel(message_channel)
+        target_channel = ctx.bot.get_channel(message_channel.id)
         target_message = await ctx.fetch_message(message_id)
         if target_message == None:
             await ctx.send(f'{ctx.message.author.mention}: The message specified does not exist.', delete_after=5)
