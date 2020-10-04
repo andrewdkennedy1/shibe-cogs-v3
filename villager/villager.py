@@ -21,6 +21,5 @@ class villager(commands.Cog):
     async def villager(self, ctx):
         """villager"""
         await ctx.trigger_typing()
-        try:
-                await ctx.send(self.__url+ctx)
-        return
+        await ctx.send(self.__url+ctx)
+        
