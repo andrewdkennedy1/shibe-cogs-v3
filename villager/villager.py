@@ -11,7 +11,7 @@ class villager(commands.Cog):
         super().__init__(*args, **kwargs)
 
     @commands.command()
-    async def villager(self,ctx, *, villager):
+    async def villager(self,ctx, *, villager: str):
         """villager"""
         await ctx.trigger_typing()
         villager.replace(" ", "_")
