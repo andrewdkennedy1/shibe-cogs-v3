@@ -18,8 +18,9 @@ class villager(commands.Cog):
             asyncio.get_event_loop().create_task(self.__session.close())
 
     @commands.command()
-    async def villager(self, ctx: commands.Context) -> None:
+    async def villager(self, ctx):
         """villager"""
         await ctx.trigger_typing()
         try:
                 await ctx.send(self.__url+ctx)
+        return
