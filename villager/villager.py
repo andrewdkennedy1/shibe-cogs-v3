@@ -14,6 +14,5 @@ class villager(commands.Cog):
     async def villager(self,ctx, *, villager):
         """villager"""
         await ctx.trigger_typing()
-        villager = {quote(villager)}
         villager.replace(" ", "_")
         await ctx.send("https://nookipedia.com/wiki/" + villager)
