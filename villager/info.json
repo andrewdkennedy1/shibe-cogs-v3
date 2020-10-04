@@ -1,0 +1,14 @@
+{
+    "author": [
+        "Shibe"
+    ],
+    "install_msg": "villager",
+    "name": "villager",
+    "short": "villager",
+    "description": "villager",
+    "requirements": [],
+    "tags": [
+        "villager"
+    ],
+    "hidden": false
+}
