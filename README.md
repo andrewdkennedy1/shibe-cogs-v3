@@ -24,7 +24,12 @@ To install the cogs, Follow the given steps:
 
 # Cog Descriptions
 **Move**
-> This is a WIP. Not intended for general use.
+Move a person's message to a differnt channel. 
+>.move [messageID] #Channel-Name
+It will ping the user to let them know which channel their message got moved to. 
+
+>.silentmove [messageID] #Channel-Name 
+Will not ping the user and just move the message to where you want it to be. 
 
 # Contact
 You can try to reach me on discord but I might be late to respond
