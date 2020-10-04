@@ -15,8 +15,9 @@ class villager(commands.Cog):
             asyncio.get_event_loop().create_task(self.__session.close())
 
     @commands.command()
-    async def villager(self, ctx, *, villager):
+    async def villager(ctx, *, villager):
         """villager"""
         await ctx.trigger_typing()
+        villager = {quote(villager)}
         villager.replace(" ", "_")
         await ctx.send("https://nookipedia.com/wiki/" + villager)
