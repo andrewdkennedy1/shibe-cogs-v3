@@ -10,10 +10,6 @@ class villager(commands.Cog):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
-    def cog_unload(self) -> None:
-        if self.__session:
-            asyncio.get_event_loop().create_task(self.__session.close())
-
     @commands.command()
     async def villager(self,ctx, *, villager):
         """villager"""
