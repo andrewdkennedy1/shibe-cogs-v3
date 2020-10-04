@@ -23,8 +23,9 @@ To install the cogs, Follow the given steps:
 
 
 # Cog Descriptions
->**Move**
+**Move**
 >Migrate  a person's message to a differnt channel. 
+>
 >``.move [messageID] #Channel-Name``
 >It will ping the user to let them know which channel their message got moved to. 
 >
