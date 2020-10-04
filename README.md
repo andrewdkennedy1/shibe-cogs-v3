@@ -23,7 +23,7 @@ To install the cogs, Follow the given steps:
 
 
 # Cog Descriptions
-**Move**
+**.move**
 >Migrate  a person's message to a differnt channel. 
 >
 >``.move [messageID] #Channel-Name``
