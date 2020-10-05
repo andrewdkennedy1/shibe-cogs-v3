@@ -11,8 +11,8 @@ class villager(commands.Cog):
         super().__init__(*args, **kwargs)
 
     @commands.command()
-    async def villager(self,ctx, *, villager: str):
+    async def villager(self,ctx, *, villager):
         """villager"""
         await ctx.trigger_typing()
-        villager.replace(" ", "_")
+        villager = villager.replace(" ", "_")
         await ctx.send("https://nookipedia.com/wiki/" + villager)
