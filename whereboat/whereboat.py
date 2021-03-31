@@ -23,9 +23,5 @@ class whereboat(commands.Cog):
         url = self.base_url
         async with self.session.get(url, headers=self.header) as response:
             soup = BeautifulSoup(await response.text(), "html.parser")
-        datah1 = soup.find('h1')
-        datah2 = soup.find('h2')
-        datah3 = soup.find('h3')
-        await ctx.send(datah1)
-        await ctx.send(datah2)
-        await ctx.send(datah3)
+        get_tags = soup.findAll(re.compile(r'(hr|strong)'))
+        await ctx.send(get_tags)
