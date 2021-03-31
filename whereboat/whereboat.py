@@ -23,5 +23,4 @@ class whereboat(commands.Cog):
         async with self.session.get(url) as response:
             boatinfo = BeautifulSoup(await response.text(), "html.parser")
             output = boatinfo.find('h1'+'h2'+'h3')
-            em = discord.Embed(title='Where Boat', description=output, colour=0xFFD966)
-        await ctx.send(em)
+        await ctx.send(output)
