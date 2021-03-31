@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from redbot.core import commands
 
 
-class WhereBoat(commands.Cog):
+class whereboat(commands.Cog):
 
     """Fetches AAUCARGO.INFO"""
 
