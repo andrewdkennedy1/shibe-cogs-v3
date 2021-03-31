@@ -26,8 +26,5 @@ class whereboat(commands.Cog):
         datah1 = soup.find('h1')
         datah2 = soup.find('h2')
         datah3 = soup.find('h3')
-        h1 = datah1.h1.text
-        h2 = datah2.h2.text
-        h3 = datah3.h4.text
-        output = h1 + h2 + h3
+        output = datah1 + datah2 + datah3
         await ctx.send(output)
