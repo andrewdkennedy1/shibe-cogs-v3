@@ -24,5 +24,8 @@ class whereboat(commands.Cog):
         async with self.session.get(url, headers=self.header) as response:
             soup = BeautifulSoup(await response.text(), "html.parser")
         data = soup.find_all('h3')
-        h3 = data[0].text
-        await ctx.send(h3)
+        status = data[0].text
+        leavetime = data[1].text
+        nextport =data[2].text
+        em=discord.Embed(title="WHERE BOAT!?", url="http://aaucargo.info/", description=status + '/n' + leavetime + "/n" + nextport, color=0xFF5733)
+        await ctx.send(embed=em)
