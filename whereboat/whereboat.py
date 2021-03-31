@@ -27,5 +27,5 @@ class whereboat(commands.Cog):
         status = data[0].text
         leavetime = data[1].text
         nextport = data[2].text
-        em=discord.Embed(title="WHERE BOAT!?", url="http://aaucargo.info/", description=status + ' ' + leavetime , color=0xFF5733)
+        em=discord.Embed(title="WHERE BOAT!?", url="http://aaucargo.info/", description=status + '\u200B' + leavetime , color=0xFF5733)
         await ctx.send(embed=em)
