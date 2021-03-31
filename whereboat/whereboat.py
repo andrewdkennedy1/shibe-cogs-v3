@@ -23,6 +23,6 @@ class whereboat(commands.Cog):
         url = self.base_url
         async with self.session.get(url, headers=self.header) as response:
             soup = BeautifulSoup(await response.text(), "html.parser")
-        data = soup.find('div')
+        data = soup.find('div', 'style="width: 100%;')
         desc = data.div.h3.text
         await ctx.send(desc)
