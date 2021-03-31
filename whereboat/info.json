@@ -1,0 +1,15 @@
+{
+    "author": [
+        "Shibe"
+    ],
+    "install_msg": "whereboat",
+    "name": "whhereboat",
+    "short": "Gets boat location from aaucargo.info",
+    "description": "Gets boat location from aaucargo.info",
+    "requirements": [],
+    "tags": [
+        "random",
+        "fun"
+    ],
+    "hidden": false
+}
