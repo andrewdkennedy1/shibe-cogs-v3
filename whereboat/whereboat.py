@@ -26,6 +26,6 @@ class whereboat(commands.Cog):
         data = soup.find_all('h3')
         status = data[0].text
         leavetime = data[1].text
-        nextport =data[2].text
+        nextport = data[2].text
         em=discord.Embed(title="WHERE BOAT!?", url="http://aaucargo.info/", description=status + ' ' + leavetime , color=0xFF5733)
         await ctx.send(embed=em)
