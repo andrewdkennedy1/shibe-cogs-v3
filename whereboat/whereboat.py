@@ -24,5 +24,5 @@ class whereboat(commands.Cog):
         async with self.session.get(url, headers=self.header) as response:
             soup = BeautifulSoup(await response.text(), "html.parser")
         data = soup.find_all('h3')
-        h3 = data.string[0]
+        h3 = data[0].text
         await ctx.send(h3)
