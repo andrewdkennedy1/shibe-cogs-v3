@@ -12,7 +12,8 @@ class whereboat(commands.Cog):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.base_url = "http://aaucargo.info/"
-        
+        self.session = aiohttp.ClientSession()
+
     @commands.command()
     async def whereboat(self, ctx):
         """gets boat location"""
