@@ -25,4 +25,4 @@ class whereboat(commands.Cog):
             soup = BeautifulSoup(await response.text(), "html.parser")
         data = soup.find_all('h3')
         h3 = data.contents[0]
-        await ctx.send(h3.contents)
+        await ctx.send(h3)
