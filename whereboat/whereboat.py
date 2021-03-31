@@ -2,6 +2,7 @@ import re
 import aiohttp
 from bs4 import BeautifulSoup
 from redbot.core import commands
+import discord
 
 
 class whereboat(commands.Cog):
@@ -22,5 +23,5 @@ class whereboat(commands.Cog):
         async with self.session.get(url) as response:
             boatinfo = BeautifulSoup(await response.text(), "html.parser")
             output = boatinfo.find('h1'+'h2'+'h3')
-            em = Embed(title='Where Boat', description=output, colour=0xFFD966)
+            em = discord.Embed(title='Where Boat', description=output, colour=0xFFD966)
         await ctx.send(em)
