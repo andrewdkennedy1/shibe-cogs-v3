@@ -39,6 +39,8 @@ class status(commands.Cog):
         for s in member.activities:
             if isinstance(s, discord.CustomActivity):
                 status_string = s
+            elif
+                status_string = none
 
         data = discord.Embed(description=status_string or activity, colour=member.colour)
         name = str(member)
