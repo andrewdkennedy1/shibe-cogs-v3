@@ -44,6 +44,5 @@ class status(BaseCog):
         embed.add_field(name="What Doing?", value=activity)
         embed.add_field(name="Custom Status", value=status_string)
         embed.set_thumbnail(url=member.avatar_url_as(static_format="png"))
-        embed.set_footer(text="Powered by ShibeBot!")
 
         await ctx.send(embed=embed)
