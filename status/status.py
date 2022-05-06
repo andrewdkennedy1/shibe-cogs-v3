@@ -39,10 +39,9 @@ class status(commands.Cog):
         for s in member.activities:
             if isinstance(s, discord.CustomActivity):
                 status_string = s
-            else status_string = none
+        userAvatar = member.display_avatar
 
-
-        data = discord.Embed(description=status_string or activity, colour=member.colour)
+        data = discord.Embed(title=member+"'s status",description=status_string or activity, colour=member.colour)
         name = str(member)
         name = " ~ ".join((name, member.nick)) if member.nick else name
         await ctx.send(embed=data)
