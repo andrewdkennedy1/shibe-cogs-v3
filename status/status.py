@@ -37,9 +37,9 @@ class status(commands.Cog):
         activity = _("Chilling in {} status").format(member.status)
 
         for s in member.activities:
-        if isinstance(s, discord.CustomActivity):
+            if isinstance(s, discord.CustomActivity):
             status_string = s
-    
+
         data = discord.Embed(description=status_string or activity, colour=member.colour)
         name = str(member)
         name = " ~ ".join((name, member.nick)) if member.nick else name
