@@ -24,6 +24,9 @@ class status(commands.Cog):
             )
             + 1
         )
+        
+        names, nicks = await self.get_names_and_nicks(member)
+
 
         if any(a.type is discord.ActivityType.streaming for a in member.activities):
             statusemoji = "\N{LARGE PURPLE CIRCLE}"
