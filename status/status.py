@@ -1,18 +1,11 @@
 
-import asyncio
-from collections import deque, defaultdict, namedtuple
-
 import discord
 
-from redbot.core import checks, Config, modlog, commands
-from redbot.core.bot import Red
-from redbot.core.i18n import Translator, cog_i18n
-from redbot.core.utils.chat_formatting import box, escape
+from redbot.core import commands
 
-_ = Translator("Mod", __file__)
+BaseCog = getattr(commands, "Cog", object)
 
-# Classname should be CamelCase and the same spelling as the folder
-class status(commands.Cog):
+class status(BaseCog):
     """gib status pls"""
 
     @commands.command(pass_context=True)
@@ -24,26 +17,13 @@ class status(commands.Cog):
         if not member:
             member = author
 
-        if any(a.type is discord.ActivityType.streaming for a in member.activities):
-            statusemoji = "\N{LARGE PURPLE CIRCLE}"
-        elif member.status.name == "online":
-            statusemoji = "\N{LARGE GREEN CIRCLE}"
-        elif member.status.name == "offline":
-            statusemoji = "\N{MEDIUM WHITE CIRCLE}\N{VARIATION SELECTOR-16}"
-        elif member.status.name == "dnd":
-            statusemoji = "\N{LARGE RED CIRCLE}"
-        elif member.status.name == "idle":
-            statusemoji = "\N{LARGE ORANGE CIRCLE}"
-        activity = _("Chilling in {} status").format(member.status)
-
         for s in member.activities:
             if isinstance(s, discord.CustomActivity):
                 status_string = s
 
-        userAvatar = member.display_avatar
         name = str(member)
         name = " ~ ".join((name, member.nick)) if member.nick else name
-        data = discord.Embed(title=name+"'s status",description=status_string or activity, colour=member.colour)
-        embed.set_thumbnail(url=userAvatar.url)
+        data = discord.Embed(title = name + "'s status",description=status_string, colour=member.colour)
+        embed.set_thumbnail(url = member.avatar_url_as(static_format="png"))
 
         await ctx.send(embed=data)
