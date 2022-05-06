@@ -13,4 +13,4 @@ class status(commands.Cog):
 
     @commands.command(pass_context=True)
     async def status(ctx, member: Member):
-    await bot.say(str(member.status))
+        await bot.say(str(member.status))
