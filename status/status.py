@@ -1,9 +1,17 @@
+
 import asyncio
-import re
-import io
+from datetime import datetime, timedelta
+from collections import deque, defaultdict, namedtuple
+
 import discord
-import requests
-from redbot.core import commands
+
+from redbot.core import checks, Config, modlog, commands
+from redbot.core.bot import Red
+from redbot.core.i18n import Translator, cog_i18n
+from redbot.core.utils.chat_formatting import box, escape
+from .checks import mod_or_voice_permissions, admin_or_voice_permissions, bot_has_voice_permissions
+from redbot.core.utils.mod import is_mod_or_superior, is_allowed_by_hierarchy, get_audit_reason
+from .log import log
 
 
 # Classname should be CamelCase and the same spelling as the folder
