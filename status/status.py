@@ -43,7 +43,4 @@ class status(commands.Cog):
         data = discord.Embed(description=status_string or activity, colour=member.colour)
         name = str(member)
         name = " ~ ".join((name, member.nick)) if member.nick else name
-        avatar = member.display_avatar.replace(static_format="png")
-        data.set_author(name=f"{statusemoji} {name}", url=avatar)
-        data.set_thumbnail(url=avatar)
         await ctx.send(embed=data)
