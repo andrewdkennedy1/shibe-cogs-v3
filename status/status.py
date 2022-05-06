@@ -36,7 +36,7 @@ class status(BaseCog):
                 status_string = s
 
         name = str(member)
-        name = (name, member.nick) if member.nick else name
+        name = " ~ ".join((name, member.nick)) if member.nick else name
 
         embed = discord.Embed()
         embed.title = name
