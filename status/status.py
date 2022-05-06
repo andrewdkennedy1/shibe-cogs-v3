@@ -1,18 +1,13 @@
-
 import asyncio
-from datetime import datetime, timedelta
-from collections import deque, defaultdict, namedtuple
-
+import re
+import io
 import discord
-
-from redbot.core import checks, Config, modlog, commands
+import requests
+from redbot.core import commands
 from redbot.core.bot import Red
 from redbot.core.i18n import Translator, cog_i18n
-from redbot.core.utils.chat_formatting import box, escape
-from .checks import mod_or_voice_permissions, admin_or_voice_permissions, bot_has_voice_permissions
-from redbot.core.utils.mod import is_mod_or_superior, is_allowed_by_hierarchy, get_audit_reason
-from .log import log
 
+_ = Translator("Mod", __file__)
 
 # Classname should be CamelCase and the same spelling as the folder
 class status(commands.Cog):
@@ -23,8 +18,10 @@ class status(commands.Cog):
         """gib status"""
         author = ctx.author
         guild = ctx.guild
+
         if not member:
             member = author
+
         if any(a.type is discord.ActivityType.streaming for a in member.activities):
             statusemoji = "\N{LARGE PURPLE CIRCLE}"
         elif member.status.name == "online":
@@ -35,7 +32,7 @@ class status(commands.Cog):
             statusemoji = "\N{LARGE RED CIRCLE}"
         elif member.status.name == "idle":
             statusemoji = "\N{LARGE ORANGE CIRCLE}"
-        activity = ("Chilling in {} status").format(member.status)
+        activity = _("Chilling in {} status").format(member.status)
         status_string = self.get_status_string(member)
         data = discord.Embed(description=status_string or activity, colour=member.colour)
         name = str(member)
