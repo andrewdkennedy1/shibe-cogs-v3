@@ -25,10 +25,10 @@ class status(BaseCog):
         name = " ~ ".join((name, member.nick)) if member.nick else name
 
         embed = discord.Embed()
-            embed.title = name + "'s status"
-            embed.colour = member.colour
-            embed.set_footer(text="Powered by ShibeBot!")
-            embed.add_field(name="", value=status_string)
-            embed.set_thumbnail(url=member.avatar_url_as(static_format="png"))
+        embed.title = name + "'s status"
+        embed.colour = member.colour
+        embed.set_footer(text="Powered by ShibeBot!")
+        embed.add_field(name="", value=status_string)
+        embed.set_thumbnail(url=member.avatar_url_as(static_format="png"))
 
         await ctx.send(embed=embed)
