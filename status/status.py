@@ -23,7 +23,12 @@ class status(BaseCog):
 
         name = str(member)
         name = " ~ ".join((name, member.nick)) if member.nick else name
-        data = discord.Embed(title = name + "'s status",description=status_string, colour=member.colour)
-        embed.set_thumbnail(url = member.avatar_url_as(static_format="png"))
 
-        await ctx.send(embed=data)
+        embed = discord.Embed()
+            embed.title = name + "'s status"
+            embed.colour = member.colour
+            embed.set_footer(text="Powered by ShibeBot!")
+            embed.add_field(name="", value=status_string)
+            embed.set_thumbnail(url=member.avatar_url_as(static_format="png"))
+
+        await ctx.send(embed=embed)
