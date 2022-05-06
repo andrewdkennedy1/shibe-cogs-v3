@@ -20,6 +20,8 @@ class status(BaseCog):
         for s in member.activities:
             if isinstance(s, discord.CustomActivity):
                 status_string = s
+            elif
+                status_string = "No Custom Status Dectected"
 
         name = str(member)
         name = " ~ ".join((name, member.nick)) if member.nick else name
