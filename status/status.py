@@ -1,11 +1,13 @@
+
 import asyncio
-import re
-import io
+from collections import deque, defaultdict, namedtuple
+
 import discord
-import requests
-from redbot.core import commands
+
+from redbot.core import checks, Config, modlog, commands
 from redbot.core.bot import Red
 from redbot.core.i18n import Translator, cog_i18n
+from redbot.core.utils.chat_formatting import box, escape
 
 _ = Translator("Mod", __file__)
 
