@@ -27,7 +27,7 @@ class status(commands.Cog):
             statusemoji = "\N{LARGE RED CIRCLE}"
         elif member.status.name == "idle":
             statusemoji = "\N{LARGE ORANGE CIRCLE}"
-        activity = _("Chilling in {} status").format(member.status)
+        activity = ("Chilling in {} status").format(member.status)
         status_string = self.get_status_string(member)
         data = discord.Embed(description=status_string or activity, colour=member.colour)
         name = str(member)
