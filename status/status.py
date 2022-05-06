@@ -3,7 +3,6 @@ import re
 import io
 import discord
 import requests
-from datetime import datetime
 from redbot.core import commands
 
 
@@ -20,17 +19,10 @@ class status(commands.Cog):
         if not member:
             member = author
 
-        #  A special case for a special someone :^)
-        special_date = datetime.datetime(2016, 1, 10, 6, 8, 4, 443000, datetime.timezone.utc)
-        is_special = member.id == 96130341705637888 and guild.id == 133049272517001216
-
         roles = member.roles[-1:0:-1]
         names, nicks = await self.get_names_and_nicks(member)
 
-        if is_special:
-            joined_at = special_date
-        else:
-            joined_at = member.joined_at
+        joined_at = member.joined_at
         voice_state = member.voice
         member_number = (
             sorted(guild.members, key=lambda m: m.joined_at or ctx.message.created_at).index(
