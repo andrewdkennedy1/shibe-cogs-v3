@@ -1,0 +1,10 @@
+{
+    "author" : ["Shibe"],
+    "install_msg" : "gib me ur status pls",
+    "name" : "Status",
+    "short" : "Grabs a custom status",
+    "requirements" : [],
+    "description" : "Puts someone's custom status in a happy little embed",
+    "permissions" : [""],
+    "tags" : [""]
+}
