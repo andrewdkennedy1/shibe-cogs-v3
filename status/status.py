@@ -19,7 +19,7 @@ class status(commands.Cog):
         if not member:
             member = author
 
-        roles = member.roles[-1:0:-1]
+
         names, nicks = await self.get_names_and_nicks(member)
 
         joined_at = member.joined_at
@@ -55,41 +55,6 @@ class status(commands.Cog):
             statusemoji = "\N{LARGE ORANGE CIRCLE}"
         activity = _("Chilling in {} status").format(member.status)
         status_string = self.get_status_string(member)
-
-        if roles:
-            role_str = ", ".join([x.mention for x in roles])
-            # 400 BAD REQUEST (error code: 50035): Invalid Form Body
-            # In embed.fields.2.value: Must be 1024 or fewer in length.
-            if len(role_str) > 1024:
-                # Alternative string building time.
-                # This is not the most optimal, but if you're hitting this, you are losing more time
-                # to every single check running on users than the occasional user info invoke
-                # We don't start by building this way, since the number of times we hit this should be
-                # infinitesimally small compared to when we don't across all uses of Red.
-                continuation_string = _(
-                    "and {numeric_number} more roles not displayed due to embed limits."
-                )
-                available_length = 1024 - len(continuation_string)  # do not attempt to tweak, i18n
-
-                role_chunks = []
-                remaining_roles = 0
-
-                for r in roles:
-                    chunk = f"{r.mention}, "
-                    chunk_size = len(chunk)
-
-                    if chunk_size < available_length:
-                        available_length -= chunk_size
-                        role_chunks.append(chunk)
-                    else:
-                        remaining_roles += 1
-
-                role_chunks.append(continuation_string.format(numeric_number=remaining_roles))
-
-                role_str = "".join(role_chunks)
-
-        else:
-            role_str = None
 
         data = discord.Embed(description=status_string or activity, colour=member.colour)
         data.set_footer(text=_("Member #{} | User ID: {}").format(member_number, member.id))
