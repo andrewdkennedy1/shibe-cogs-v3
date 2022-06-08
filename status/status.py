@@ -18,15 +18,10 @@ class status(BaseCog):
             member = author
 
         status_string = "None"
-        
-        playing_string = "None"
-
+       
         for s in member.activities:
             if isinstance(s, discord.CustomActivity):
                 status_string = s
-        for s in member.activities:
-           if isinstance(s, discord.game):
-                playing_string = s
 
         name = str(member)
         name = member.nick if member.nick else name
@@ -35,7 +30,6 @@ class status(BaseCog):
         embed.title = name
         embed.colour = member.colour
         embed.add_field(name="Status", value=status_string)
-        embed.add_field(name="Playing", value=playing_string)
         embed.set_thumbnail(url=member.avatar_url_as(static_format="png"))
 
         await ctx.send(embed=embed)
