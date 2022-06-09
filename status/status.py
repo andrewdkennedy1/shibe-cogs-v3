@@ -11,4 +11,4 @@ class status(B):
 		F='None'
 		for G in A.activities:
 			if isinstance(G,E.CustomActivity):F=G
-		D=str(A);D=A.nick if A.nick else D;B=E.Embed();B.title=D;B.colour=A.colour;B.add_field(name='Status',value=F);B.set_thumbnail(url=A.avatar_url_as(static_format='png'));await C.send(embed=B)
+		D=str(A);D=A.nick if A.nick else D;B=E.Embed();B.title=D;B.colour=A.colour;B.add_field(name='Custom Status',value=F);B.set_thumbnail(url=A.avatar_url_as(static_format='png'));await C.send(embed=B)
