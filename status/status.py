@@ -1,7 +1,5 @@
 import discord
 from redbot.core import commands,Config,checks
-import aiohttp
-from redbot.core.utils.menus import menu,commands,DEFAULT_CONTROLS
 BaseCog=getattr(commands,'Cog',object)
 class status(BaseCog):
 	'gib status pls'
