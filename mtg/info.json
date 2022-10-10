@@ -1,0 +1,10 @@
+{
+    "author" : ["Shibe"],
+    "install_msg" : "magic.",
+    "name" : "MTG",
+    "short" : "Gets Magic Cards",
+    "requirements" : [],
+    "description" : "Gets Magic Cards",
+    "permissions" : [""],
+    "tags" : ["magic"]
+}
