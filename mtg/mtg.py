@@ -7,25 +7,22 @@ import discord, re, time
 class mtg(commands.Cog):
     """Take your message here and move it over there"""
 
-    def __init__(self, bot):
-        self.bot = bot
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
         
     async def getRequest(self, url, **kwargs):
         async with self.bot.aiohttp_session.get(url, **kwargs) as response:
             return await response.json()
-
+            
     @commands.command(pass_context=True)
     async def mtg(self, ctx, *, cardname : str):
         """
         Fetches for a card.
         """
-        startTimer = time.monotonic()
         card = await self.getRequest(url='http://api.scryfall.com/cards/named?', params={'fuzzy':cardname})
-        endTimer = time.monotonic()
-        f = endTimer - startTimer
 
         if card['object'] == "error":
-            await self.bot.say(re.sub(r'\(|\'|,|\)+', '', card['details']))
+            await ctx.send(re.sub(r'\(|\'|,|\)+', '', card['details']))
             return
 
         if 'card_faces' in card:
@@ -37,7 +34,7 @@ class mtg(commands.Cog):
                 )
                 message.set_image(url=entry['image_uris']['normal'])
                 message.set_footer(text="Fetch took: {} seconds.".format('%.3f' % f))
-                await self.bot.say(embed=message)
+                await ctx.send(embed=message)
             return
 
         message = discord.Embed(
@@ -49,4 +46,4 @@ class mtg(commands.Cog):
 
         message.set_footer(text="Fetch took: {} seconds.".format('%.3f' % f))
         message.set_image(url=card['image_uris']['normal'])
-        await self.bot.say(embed=message)
+        await ctx.send(embed=message)
