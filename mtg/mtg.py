@@ -13,17 +13,7 @@ class mtg(commands.Cog):
         Fetches for a card.
         """
         session = aiohttp.ClientSession()
+
         resp = await session.get(url='http://api.scryfall.com/cards/named?', params={'fuzzy':cardname})
         card = resp.json()
-
-
-        message = discord.Embed(
-            title="**{}**".format(card['name']),
-            url=card['scryfall_uri'],
-            color=discord.Color(0x1b6f9),
-            description=""
-        )
-
-        message.set_footer(text="Fetch took: {} seconds.".format('%.3f' % f))
-        message.set_image(url=card['image_uris']['normal'])
-        await ctx.send(embed=message)
+        await ctx.send(card)
