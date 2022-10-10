@@ -14,6 +14,7 @@ class mtg(commands.Cog):
         """
         session = aiohttp.ClientSession()
 
+
         resp = await session.get(url='http://api.scryfall.com/cards/named?', params={'fuzzy':cardname})
-        card = resp.json()
+        card = await resp.json()
         await ctx.send(card)
