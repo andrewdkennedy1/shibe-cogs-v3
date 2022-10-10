@@ -1,7 +1,6 @@
 from redbot.core import commands
 import asyncio, aiohttp, json
 import discord, re, time
-from .utils import checks
 
 
 # Classname should be CamelCase and the same spelling as the folder
