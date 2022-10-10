@@ -7,10 +7,13 @@ import discord, re, time
 class mtg(commands.Cog):
     """Take your message here and move it over there"""
 
+    def __init__(self, bot):
+        self.bot = bot
+        
     async def getRequest(self, url, **kwargs):
         async with self.bot.aiohttp_session.get(url, **kwargs) as response:
             return await response.json()
-            
+
     @commands.command(pass_context=True)
     async def mtg(self, ctx, *, cardname : str):
         """
