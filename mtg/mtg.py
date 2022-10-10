@@ -29,7 +29,6 @@ class mtg(commands.Cog):
                     color=discord.Color(0x1b6f9)
                 )
                 message.set_image(url=entry['image_uris']['normal'])
-                message.set_footer(text="foot")
                 await ctx.send(embed=message)
             return
 
@@ -40,6 +39,5 @@ class mtg(commands.Cog):
             description=""
         )
 
-        message.set_footer(text="foot")
         message.set_image(url=card['image_uris']['normal'])
         await ctx.send(embed=message)
