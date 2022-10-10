@@ -11,7 +11,7 @@ class mtg(commands.Cog):
         super().__init__(*args, **kwargs)
         
     async def getRequest(self, url, **kwargs):
-        async with self.bot.aiohttp_session.get(url, **kwargs) as response:
+        async with self.aiohttp_session.get(url, **kwargs) as response:
             return await response.json()
             
     @commands.command(pass_context=True)
