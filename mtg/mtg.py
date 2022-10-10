@@ -40,6 +40,6 @@ class mtg(commands.Cog):
             description=""
         )
 
-        message.set_footer(text="foot"))
+        message.set_footer(text="foot")
         message.set_image(url=card['image_uris']['normal'])
         await ctx.send(embed=message)
