@@ -5,21 +5,16 @@ import discord, re, time
 
 # Classname should be CamelCase and the same spelling as the folder
 class mtg(commands.Cog):
-    """Take your message here and move it over there"""
+    """mtg"""
 
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-        
-    async def getRequest(self, url, **kwargs):
-        async with self.aiohttp_session.get(url, **kwargs) as response:
-            return await response.json()
-            
     @commands.command(pass_context=True)
     async def mtg(self, ctx, *, cardname : str):
         """
         Fetches for a card.
         """
-        card = await self.getRequest(url='http://api.scryfall.com/cards/named?', params={'fuzzy':cardname})
+        session = aiohttp.ClientSession()
+
+        card = await session.get(url='http://api.scryfall.com/cards/named?', params={'fuzzy':cardname})
 
         if card['object'] == "error":
             await ctx.send(re.sub(r'\(|\'|,|\)+', '', card['details']))
