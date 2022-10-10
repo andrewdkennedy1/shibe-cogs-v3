@@ -12,7 +12,6 @@ class mtg(commands.Cog):
         """
         Fetches for a card.
         """
-
         startTimer = time.monotonic()
         card = await self.getRequest(url='http://api.scryfall.com/cards/named?', params={'fuzzy':cardname})
         endTimer = time.monotonic()
