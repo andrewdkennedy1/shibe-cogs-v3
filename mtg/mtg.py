@@ -1,32 +1,8 @@
-from redbot.core import commands
-import asyncio, aiohttp, json
-import discord, re, time
-
-
-# Classname should be CamelCase and the same spelling as the folder
-class mtg(commands.Cog):
-    """mtg"""
-
-    @commands.command(pass_context=True)
-    async def mtg(self, ctx, *, cardname : str):
-        """
-        Fetches for a card.
-        """
-        session = aiohttp.ClientSession()
-
-        resp = await session.get(url='http://api.scryfall.com/cards/named?', params={'fuzzy':cardname})
-        card = await resp.json()
-
-        if card['object'] == "error":
-            await ctx.send(re.sub(r'\(|\'|,|\)+', '', card['details']))
-            return
-
-        message = discord.Embed(
-            title="**{}**".format(card['name']),
-            url=card['scryfall_uri'],
-            color=discord.Color(0x1b6f9),
-            description=""
-        )
-
-        message.set_image(url=card['image_uris']['normal'])
-        await ctx.send(embed=message)
+from redbot.core import commands as A
+import asyncio,aiohttp as D,json,discord as B,re,time
+class mtg(A.Cog):
+	@A.command(pass_context=True)
+	async def mtg(self,ctx,*,cardname):
+		E=D.ClientSession();F=await E.get(url='http://api.scryfall.com/cards/named?',params={'fuzzy':cardname});A=await F.json()
+		if A['object']=='error':await ctx.send(re.sub("\\(|\\'|,|\\)+",'',A['details']));return
+		C=B.Embed(title='**{}**'.format(A['name']),url=A['scryfall_uri'],color=B.Color(112377),description='');C.set_image(url=A['image_uris']['normal']);await ctx.send(embed=C)
