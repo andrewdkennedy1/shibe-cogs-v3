@@ -7,6 +7,6 @@ class mtg(A.Cog):
 		if A['object']=='error':await ctx.send(re.sub("\\(|\\'|,|\\)+",'',A['details']));return
 		C=B.Embed(title='**{}**'.format(A['name']),url=A['scryfall_uri']);C.set_image(url=A['image_uris']['normal']);await ctx.send(embed=C)
 	async def mtgrandom(self,ctx,*,cardname):
-		E=D.ClientSession();F=await E.get(url='http://api.scryfall.com/cards/random');A=await F.json()
+		E=D.ClientSession();F=await E.get(url='http://api.scryfall.com/cards/random?',params={'q':cardname});A=await F.json()
 		if A['object']=='error':await ctx.send(re.sub("\\(|\\'|,|\\)+",'',A['details']));return
 		C=B.Embed(title='**{}**'.format(A['name']),url=A['scryfall_uri']);C.set_image(url=A['image_uris']['normal']);await ctx.send(embed=C)
