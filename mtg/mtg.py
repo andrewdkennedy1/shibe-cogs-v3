@@ -21,17 +21,6 @@ class mtg(commands.Cog):
             await ctx.send(re.sub(r'\(|\'|,|\)+', '', card['details']))
             return
 
-        if 'card_faces' in card:
-            for entry in card['card_faces']:
-                message = discord.Embed(
-                    title="**{}**".format(entry['name']),
-                    url=card['scryfall_uri'],
-                    color=discord.Color(0x1b6f9)
-                )
-                message.set_image(url=entry['image_uris']['normal'])
-                await ctx.send(embed=message)
-            return
-
         message = discord.Embed(
             title="**{}**".format(card['name']),
             url=card['scryfall_uri'],
