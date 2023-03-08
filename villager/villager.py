@@ -15,4 +15,4 @@ class villager(commands.Cog):
         """villager"""
         await ctx.trigger_typing()
         villager = villager.replace(" ", "_")
-        await ctx.send("https://nookipedia.com/wiki/" + villager)
+        await ctx.send(f"https://nookipedia.com/wiki/{villager}")
